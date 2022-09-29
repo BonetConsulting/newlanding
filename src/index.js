@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const nodemailer = require("nodemailer");
-
+const http = require("http");
 const router = express.Router();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(require("./routes/index"));
+//app.use(require("./routes/index"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -65,10 +65,11 @@ function sendContactMail(name, email, asunto, mensaje) {
   });
 }
 
-// app.use("/contactLanding", (req, res) => {
-//   res.send("dsffdg");
-//   console.log("sdfd");
-// });
+
+//app.use('/', function(req, res) {
+  //  res.send("HOLA MUNDO")
+    //__dirname : It will resolve to your project folder.
+//});
 
 app.use("/contactLanding", (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
@@ -79,12 +80,4 @@ app.use("/contactLanding", (req, res) => {
   }
 });
 
-// // router.post("/contactLanding", (req, res) => {
-// //   sendContactMail();
-
-// //   res.send("hello");
-// //   console.log("fsgf");
-// // });
-
-app.listen(3000);
-console.log("Server on port 3000");
+app.listen(3000); 
