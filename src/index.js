@@ -1,39 +1,49 @@
-const express = require("express");
+const express = require('express');
 const app = express();
+<<<<<<< HEAD:index.js
 const path = require("path");
 const nodemailer = require("nodemailer");
 const http = require("http");
+=======
+const path = require('path');
+const nodemailer = require('nodemailer');
+
+>>>>>>> 347bd218e33f01b86f01929b49fbcecfc1964bd1:src/index.js
 const router = express.Router();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+<<<<<<< HEAD:index.js
 //app.use(require("./routes/index"));
 
 app.use(express.static(path.join(__dirname, "public")));
+=======
+app.use(express.static(path.join(__dirname, 'public')));
+>>>>>>> 347bd218e33f01b86f01929b49fbcecfc1964bd1:src/index.js
 
 let transport = nodemailer.createTransport({
   maxConnections: 2,
   pool: true,
-  host: "smtp.office365.com",
+  host: 'smtp.office365.com',
   port: 587,
   secure: false,
   auth: {
-    user: "comunicaciones@bonetconsulting.com",
-    pass: "0t340!KSA#4t",
+    user: 'comunicaciones@bonetconsulting.com',
+    pass: '0t340!KSA#4t',
   },
 });
 
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
-    from: "Bonet Consulting <comunicaciones@bonetconsulting.com>",
+    from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
     to: `${email}`,
-    subject: "PRUEBA",
+    subject: 'PRUEBA',
     attachments: [
       {
-        filename: "bonetlogo.png.jpg",
+        filename: 'bonetlogo.png.jpg',
         path: `${__dirname}/public/images/bonetlogo.png`,
-        cid: "logo", //same cid value as in the html img src
+        cid: 'logo', //same cid value as in the html img src
       },
     ],
     html: `
@@ -71,13 +81,25 @@ function sendContactMail(name, email, asunto, mensaje) {
     //__dirname : It will resolve to your project folder.
 //});
 
-app.use("/contactLanding", (req, res) => {
+app.use('/contactLanding', (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
-  if (email.trim() != "") {
+  if (email.trim() != '') {
     sendContactMail(name, email, asunto, mensaje);
-    res.redirect("./contact.html");
+    res.redirect('./contact.html');
   } else {
   }
 });
 
+<<<<<<< HEAD:index.js
 app.listen(3000); 
+=======
+// // router.post("/contactLanding", (req, res) => {
+// //   sendContactMail();
+
+// //   res.send("hello");
+// //   console.log("fsgf");
+// // });
+
+app.listen(3000);
+console.log('Server on port 3000');
+>>>>>>> 347bd218e33f01b86f01929b49fbcecfc1964bd1:src/index.js
