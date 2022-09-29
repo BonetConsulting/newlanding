@@ -93,7 +93,7 @@ input:-webkit-autofill:active {
   transition-property: background-color, color;
 }
 
-textarea[type="hidden"] {
+textarea[type='hidden'] {
   display: none;
 }
 
@@ -226,7 +226,7 @@ h6 {
 }
 
 .ilustration-formation-img {
-  background-image: url("/assets/images/Ilustracion-formación.png");
+  background-image: url('/assets/images/Ilustracion-formación.png');
 }
 
 .default-color {
@@ -293,7 +293,7 @@ h6 {
   }
 
   .certificate-section-2 div {
-    position: absolute;
+    /* position: absolute; */
     right: 0;
     border: none;
   }
@@ -450,7 +450,7 @@ nav .mbr-section-btn {
   font-weight: 700;
 }
 
-[type="submit"] {
+[type='submit'] {
   -webkit-appearance: none;
 }
 
@@ -519,7 +519,7 @@ nav .mbr-section-btn {
 }
 
 .mbr-arrow-up-icon::before {
-  content: "›";
+  content: '›';
   display: inline-block;
   font-family: serif;
   font-size: 22px;
@@ -564,7 +564,7 @@ nav .mbr-section-btn {
 }
 
 #scrollToTop a i::before {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   border-bottom: 2.5px solid #fff;
@@ -767,7 +767,7 @@ nav .mbr-section-btn {
   padding: 1.07em 0.5em;
 }
 
-input[type="range"] {
+input[type='range'] {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
@@ -815,7 +815,7 @@ input[type="range"] {
   width: 1.5em;
   height: 1.5em;
   vertical-align: middle;
-  content: "";
+  content: '';
   background: no-repeat center center;
   background-size: 100% 100%;
 }
@@ -888,7 +888,7 @@ body {
 .alert.alert-form::after {
   background-color: inherit;
   bottom: -7px;
-  content: "";
+  content: '';
   display: block;
   height: 14px;
   left: 50%;
@@ -919,7 +919,7 @@ form .row {
   margin-left: -0.6rem;
   margin-right: -0.6rem;
 }
-form .row [class*="col"] {
+form .row [class*='col'] {
   padding-left: 0.6rem;
   padding-right: 0.6rem;
 }
@@ -953,7 +953,7 @@ form .btn {
   min-height: 48px;
 }
 
-.gdpr-block label span.textGDPR input[name="gdpr"] {
+.gdpr-block label span.textGDPR input[name='gdpr'] {
   top: 7px;
 }
 
@@ -1010,7 +1010,7 @@ blockquote {
     margin-left: -16px;
     margin-right: -16px;
   }
-  .row > [class*="col"] {
+  .row > [class*='col'] {
     padding-left: 16px;
     padding-right: 16px;
   }

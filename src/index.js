@@ -1,39 +1,37 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const path = require("path");
-const nodemailer = require("nodemailer");
+const path = require('path');
+const nodemailer = require('nodemailer');
 
 const router = express.Router();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(require("./routes/index"));
-
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 let transport = nodemailer.createTransport({
   maxConnections: 2,
   pool: true,
-  host: "smtp.office365.com",
+  host: 'smtp.office365.com',
   port: 587,
   secure: false,
   auth: {
-    user: "comunicaciones@bonetconsulting.com",
-    pass: "0t340!KSA#4t",
+    user: 'comunicaciones@bonetconsulting.com',
+    pass: '0t340!KSA#4t',
   },
 });
 
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
-    from: "Bonet Consulting <comunicaciones@bonetconsulting.com>",
+    from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
     to: `${email}`,
-    subject: "PRUEBA",
+    subject: 'PRUEBA',
     attachments: [
       {
-        filename: "bonetlogo.png.jpg",
+        filename: 'bonetlogo.png.jpg',
         path: `${__dirname}/public/images/bonetlogo.png`,
-        cid: "logo", //same cid value as in the html img src
+        cid: 'logo', //same cid value as in the html img src
       },
     ],
     html: `
@@ -70,11 +68,11 @@ function sendContactMail(name, email, asunto, mensaje) {
 //   console.log("sdfd");
 // });
 
-app.use("/contactLanding", (req, res) => {
+app.use('/contactLanding', (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
-  if (email.trim() != "") {
+  if (email.trim() != '') {
     sendContactMail(name, email, asunto, mensaje);
-    res.redirect("./contact.html");
+    res.redirect('./contact.html');
   } else {
   }
 });
@@ -87,4 +85,4 @@ app.use("/contactLanding", (req, res) => {
 // // });
 
 app.listen(3000);
-console.log("Server on port 3000");
+console.log('Server on port 3000');
