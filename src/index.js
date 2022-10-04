@@ -1,14 +1,26 @@
 const express = require('express');
 const app = express();
+<<<<<<< HEAD:index.js
+const path = require("path");
+const nodemailer = require("nodemailer");
+const http = require("http");
+=======
 const path = require('path');
 const nodemailer = require('nodemailer');
 
+>>>>>>> 347bd218e33f01b86f01929b49fbcecfc1964bd1:src/index.js
 const router = express.Router();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+<<<<<<< HEAD:index.js
+//app.use(require("./routes/index"));
+
+app.use(express.static(path.join(__dirname, "public")));
+=======
 app.use(express.static(path.join(__dirname, 'public')));
+>>>>>>> 347bd218e33f01b86f01929b49fbcecfc1964bd1:src/index.js
 
 let transport = nodemailer.createTransport({
   maxConnections: 2,
@@ -63,10 +75,11 @@ function sendContactMail(name, email, asunto, mensaje) {
   });
 }
 
-// app.use("/contactLanding", (req, res) => {
-//   res.send("dsffdg");
-//   console.log("sdfd");
-// });
+
+//app.use('/', function(req, res) {
+  //  res.send("HOLA MUNDO")
+    //__dirname : It will resolve to your project folder.
+//});
 
 app.use('/contactLanding', (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
@@ -77,6 +90,9 @@ app.use('/contactLanding', (req, res) => {
   }
 });
 
+<<<<<<< HEAD:index.js
+app.listen(3000); 
+=======
 // // router.post("/contactLanding", (req, res) => {
 // //   sendContactMail();
 
@@ -86,3 +102,4 @@ app.use('/contactLanding', (req, res) => {
 
 app.listen(3000);
 console.log('Server on port 3000');
+>>>>>>> 347bd218e33f01b86f01929b49fbcecfc1964bd1:src/index.js
