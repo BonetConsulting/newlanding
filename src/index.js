@@ -20,14 +20,14 @@ let transport = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: 'comunicaciones@bonetconsulting.com',
-    pass: process.env.outlook_password,
+    user: 'corporate-line@corporate-line.com',
+    pass: 'BNT7p5z5',
   },
 });
 
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
-    from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
+    from: 'Bonet Consulting <corporate-line@corporate-line.com>',
     to: `programacion@bonetconsulting.com,sali@bonetconsulting.com`,
     subject: 'Contacto Bonet',
     attachments: [
