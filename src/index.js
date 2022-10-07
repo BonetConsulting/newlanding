@@ -6,6 +6,7 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 
 const router = express.Router();
+require('dotenv').config();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -15,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 let transport = nodemailer.createTransport({
   maxConnections: 2,
   pool: true,
-  host: 'smtp.office365.com',
+  host: process.env.stmp_link,
   port: 587,
   secure: false,
   auth: {
@@ -27,7 +28,7 @@ let transport = nodemailer.createTransport({
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
     from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
-    to: `${email}`,
+    to: `programacion@bonetconsulting.com,sali@bonetconsulting.com`,
     subject: 'Contacto Bonet',
     attachments: [
       {
@@ -84,5 +85,5 @@ app.use('/contactLanding', (req, res) => {
 // //   console.log("fsgf");
 // // });
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log('Server on port 3000');
