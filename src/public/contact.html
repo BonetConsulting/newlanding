@@ -568,16 +568,16 @@
       <script href="https://mobiri.se/831025"></script>
       <script href="https://mobirise.com/offline-website-builder.html"></script>
     </section>
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/smoothscroll/smooth-scroll.js"></script>
-    <script src="assets/ytplayer/index.js"></script>
-    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
-    <script src="assets/theme/js/script.js"></script>
     <!-- <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script> -->
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="assets/ytplayer/index.js"></script>
+    <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+    <script src="assets/theme/js/script.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
@@ -594,38 +594,6 @@
           document.getElementById('cookieButton').click();
         }
       }
-      const btn = document
-        .getElementById('btnsubmit')
-        .addEventListener('click', (e) => {
-          e.preventDefault();
-
-          var name = document.getElementById('name');
-          var email = document.getElementById('email').value;
-          var subject = document.getElementById('asunto').value;
-          var message = document.getElementById('message').value;
-
-          name.value = ' ';
-          email = '';
-          subject = '';
-          messsage = '';
-          // var body =
-          //   "name: " +
-          //   name +
-          //   "<br/> email: " +
-          //   email +
-          //   "br/> subject" +
-          //   subject +
-          //   "<br/> message" +
-          //   message;
-          // fetch("/contactLanding", {
-          //   method: "POST",
-          //   mode: "cors",
-          //   headers: {
-          //     "Content-Type": "application/json",
-          //     // 'Content-Type': 'application/x-www-form-urlencoded',
-          //   },
-          // }).then((data) => console.log(data.json));
-        });
 
       var currentDate = (document.getElementById('currentYear').innerHTML =
         new Date().getFullYear());
