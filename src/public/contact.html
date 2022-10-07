@@ -223,9 +223,7 @@
       >
         <div class="container-fluid mb-4">
           <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-            <h1 class="mbr-section-title mb-4 display-2">
-              <strong>Contactar</strong>
-            </h1>
+            <h1 class="mbr-section-title mb-4 display-1">Contactar</h1>
           </div>
           <div class="row justify-content-center width50 margin-auto">
             <div
@@ -588,28 +586,28 @@
     ></script>
     <script>
       function acceptCookie() {
-        document.cookie = "checked=true;path=/";
+        document.cookie = 'checked=true;path=/';
       }
 
       function checkCookie() {
         if (!document.cookie) {
-          document.getElementById("cookieButton").click();
+          document.getElementById('cookieButton').click();
         }
       }
       const btn = document
-        .getElementById("btnsubmit")
-        .addEventListener("click", (e) => {
+        .getElementById('btnsubmit')
+        .addEventListener('click', (e) => {
           e.preventDefault();
 
-          var name = document.getElementById("name");
-          var email = document.getElementById("email").value;
-          var subject = document.getElementById("asunto").value;
-          var message = document.getElementById("message").value;
+          var name = document.getElementById('name');
+          var email = document.getElementById('email').value;
+          var subject = document.getElementById('asunto').value;
+          var message = document.getElementById('message').value;
 
-          name.value = " ";
-          email = "";
-          subject = "";
-          messsage = "";
+          name.value = ' ';
+          email = '';
+          subject = '';
+          messsage = '';
           // var body =
           //   "name: " +
           //   name +
@@ -629,22 +627,22 @@
           // }).then((data) => console.log(data.json));
         });
 
-      var currentDate = (document.getElementById("currentYear").innerHTML =
+      var currentDate = (document.getElementById('currentYear').innerHTML =
         new Date().getFullYear());
 
       var uri = window.location.toString();
-      if (uri.indexOf("#") > 0) {
-        var clean_uri = uri.substring(0, uri.indexOf("#"));
+      if (uri.indexOf('#') > 0) {
+        var clean_uri = uri.substring(0, uri.indexOf('#'));
         window.history.replaceState({}, document.title, clean_uri);
       }
       function initScroll(elementId, e) {
         document.getElementById(elementId).scrollIntoView({
-          behavior: "smooth",
+          behavior: 'smooth',
         });
         if (e !== undefined) {
-          e.offsetParent.classList.remove("home-sidebar--visible");
+          e.offsetParent.classList.remove('home-sidebar--visible');
           document.getElementById(elementId).scrollIntoView({
-            behavior: "smooth",
+            behavior: 'smooth',
           });
         }
       }

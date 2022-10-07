@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -18,7 +20,7 @@ let transport = nodemailer.createTransport({
   secure: false,
   auth: {
     user: 'comunicaciones@bonetconsulting.com',
-    pass: '0t340!KSA#4t',
+    pass: 'Muh31985',
   },
 });
 
@@ -26,7 +28,7 @@ function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
     from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
     to: `${email}`,
-    subject: 'PRUEBA',
+    subject: 'Contacto Bonet',
     attachments: [
       {
         filename: 'bonetlogo.png.jpg',
@@ -61,12 +63,9 @@ function sendContactMail(name, email, asunto, mensaje) {
       return; //(error)
     }
   });
-}
-
+} //  res.send("HOLA MUNDO") //__dirname : It will resolve to your project folder.
 
 //app.use('/', function(req, res) {
-  //  res.send("HOLA MUNDO")
-    //__dirname : It will resolve to your project folder.
 //});
 
 app.use('/contactLanding', (req, res) => {
