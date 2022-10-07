@@ -20,7 +20,7 @@ let transport = nodemailer.createTransport({
   secure: false,
   auth: {
     user: 'comunicaciones@bonetconsulting.com',
-    pass: 'Muh31985',
+    pass: process.env.outlook_password,
   },
 });
 
