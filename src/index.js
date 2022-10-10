@@ -61,7 +61,7 @@ function sendContactMail(name, email, asunto, mensaje) {
   };
   transport.sendMail(mailOptions, (error, info) => {
     if (error) {
-      return; //(error)
+      return error; //(error)
     }
   });
 } //  res.send("HOLA MUNDO") //__dirname : It will resolve to your project folder.
@@ -71,11 +71,20 @@ function sendContactMail(name, email, asunto, mensaje) {
 
 app.use('/contactLanding', (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
-  if (email.trim() != '') {
-    sendContactMail(name, email, asunto, mensaje);
-    res.redirect('./contact.html');
-  } else {
+  try {
+    if (email.trim() != '') {
+      sendContactMail(name, email, asunto, mensaje);
+      // res.redirect('./contact.html');
+    } else {
+    }
+  } catch (error) {
+    return error;
   }
+  // if (email.trim() != '') {
+  //   sendContactMail(name, email, asunto, mensaje);
+  //   res.redirect('./contact.html');
+  // } else {
+  // }
 });
 
 // // router.post("/contactLanding", (req, res) => {
