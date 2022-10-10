@@ -20,14 +20,14 @@ let transport = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: 'corporate-line@corporate-line.com',
-    pass: 'BNT7p5z5',
+    user: 'comunicaciones@bonetconsulting.com',
+    pass: process.env.outlook_password,
   },
 });
 
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
-    from: 'Bonet Consulting <corporate-line@corporate-line.com>',
+    from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
     to: `programacion@bonetconsulting.com,sali@bonetconsulting.com`,
     subject: 'Contacto Bonet',
     attachments: [
@@ -61,7 +61,7 @@ function sendContactMail(name, email, asunto, mensaje) {
   };
   transport.sendMail(mailOptions, (error, info) => {
     if (error) {
-      return error; //(error)
+      return; //(error)
     }
   });
 } //  res.send("HOLA MUNDO") //__dirname : It will resolve to your project folder.
@@ -71,20 +71,12 @@ function sendContactMail(name, email, asunto, mensaje) {
 
 app.use('/contactLanding', (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
+
   try {
-    if (email.trim() != '') {
-      sendContactMail(name, email, asunto, mensaje);
-      // res.redirect('./contact.html');
-    } else {
-    }
+    sendContactMail(name, email, asunto, mensaje);
   } catch (error) {
-    return error;
+    console.log(error);
   }
-  // if (email.trim() != '') {
-  //   sendContactMail(name, email, asunto, mensaje);
-  //   res.redirect('./contact.html');
-  // } else {
-  // }
 });
 
 // // router.post("/contactLanding", (req, res) => {
