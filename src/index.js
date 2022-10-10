@@ -16,11 +16,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 let transport = nodemailer.createTransport({
   maxConnections: 2,
   pool: true,
-  host: process.env.stmp_link,
+  host: 'email-smtp.us-east-1.amazonaws.com',
   port: 587,
   secure: false,
   auth: {
-    user: 'comunicaciones@bonetconsulting.com',
+    user: 'AKIAXNH6XZILRPSOJIUQ',
     pass: process.env.outlook_password,
   },
 });
@@ -71,11 +71,10 @@ function sendContactMail(name, email, asunto, mensaje) {
 
 app.use('/contactLanding', (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
-
-  try {
+  if (email.trim() != '') {
     sendContactMail(name, email, asunto, mensaje);
-  } catch (error) {
-    console.log(error);
+    res.redirect('./contact.html');
+  } else {
   }
 });
 
