@@ -28,7 +28,7 @@ let transport = nodemailer.createTransport({
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
     from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
-    to: `programacion@bonetconsulting.com,sali@bonetconsulting.com`,
+    to: `sali@bonetconsulting.com`,
     subject: 'Contacto Bonet',
     attachments: [
       {
