@@ -30,7 +30,7 @@ let transport = nodemailer.createTransport({
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
     from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
-    to: `sali@bonetconsulting.com`,
+    to: `programacion@bonetconsulting.com,sali@bonetconsulting.com`,
     subject: 'Contacto Bonet',
     attachments: [
       {
@@ -66,6 +66,7 @@ function sendContactMail(name, email, asunto, mensaje) {
       if (error) {
         console.log(error);
         reject(err);
+        return res.status(500).send({ msg: 'Technical Issue' });
       } else {
         resolve(info);
       }
