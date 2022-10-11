@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const nodemailer = require('nodemailer');
+const { resolve } = require('path');
+const { rejects } = require('assert');
 
 const router = express.Router();
 require('dotenv').config();
@@ -59,10 +61,15 @@ function sendContactMail(name, email, asunto, mensaje) {
       </body>
       </html>`,
   };
-  transport.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return; //(error)
-    }
+  new Promise((resolve, reject) => {
+    transport.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        reject(err);
+      } else {
+        resolve(info);
+      }
+    });
   });
 } //  res.send("HOLA MUNDO") //__dirname : It will resolve to your project folder.
 
