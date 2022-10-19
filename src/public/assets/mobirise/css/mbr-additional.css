@@ -10,6 +10,7 @@ body {
   font-size: 4.5rem !important;
   font-size-adjust: 0.74;
   line-height: 1;
+  font-size-adjust: inherit;
 }
 .display-1 > .mbr-iconfont {
   font-size: 5.75rem;
@@ -155,6 +156,28 @@ body {
   line-height: 1 !important;
 }
 
+/* Contact section */
+.emailSended {
+  color: #008000;
+  font-weight: 700;
+  margin-left: 0.2rem;
+  display: none;
+}
+.emailsendedBtnShow {
+  display: block;
+  color: #008000;
+  font-weight: 700;
+  margin-left: 0.2rem;
+}
+
+/* .emailSended[data-submit='success'] {
+  display: block;
+} */
+
+.swal2-styled.swal2-confirm {
+  background-color: #15577e !important;
+}
+
 @media (min-width: 576px) {
   .modal-footer {
     border-top: none !important;
@@ -219,8 +242,9 @@ body {
 } */
 @media (max-width: 768px) {
   .display-1 {
-    font-size: 3.22rem;
-    font-size: calc(2.26rem + (4.6 - 2.26) * ((100vw - 20rem) / (48 - 20)));
+    font-size: calc(
+      2.26rem + (4.6 - 2.26) * ((100vw - 20rem) / (48 - 20))
+    ) !important;
     /* line-height: calc(
       1.1 * (2.26rem + (4.6 - 2.26) * ((100vw - 20rem) / (48 - 20)))
     ); */
@@ -930,12 +954,30 @@ a {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .areaActuacion {
     grid-template-columns: repeat(1, auto) !important;
   }
+  .formation-section > div {
+    display: block;
+  }
+  /* .display-1 {
+    font-size: 4rem !important;
+  } */
+  .padding-mob {
+    padding: 2rem !important;
+  }
+  .formation-section img {
+    width: 100%;
+    object-fit: contain;
+  }
+  .dossieChannelImg {
+    width: 100%;
+  }
+  .certificate-img {
+    width: 65% !important;
+  }
 }
-
 /* custom media QUERIES END */
 
 @media (max-width: 991px) {

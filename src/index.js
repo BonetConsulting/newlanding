@@ -30,7 +30,7 @@ let transport = nodemailer.createTransport({
 function sendContactMail(name, email, asunto, mensaje) {
   let mailOptions = {
     from: 'Bonet Consulting <comunicaciones@bonetconsulting.com>',
-    to: `programacion@bonetconsulting.com,sali@bonetconsulting.com`,
+    to: `programacion@bonetconsulting.com, sali@bonetconsulting.com`,
     subject: 'Contacto Bonet',
     attachments: [
       {
@@ -79,10 +79,12 @@ function sendContactMail(name, email, asunto, mensaje) {
 
 app.use('/contactLanding', (req, res) => {
   const { name, email, asunto, mensaje } = req.body;
+
   if (email.trim() != '') {
     sendContactMail(name, email, asunto, mensaje);
-    res.redirect('./contact.html');
-  } else {
+    setTimeout(() => {
+      res.redirect('./contact.html');
+    }, 1500);
   }
 });
 
